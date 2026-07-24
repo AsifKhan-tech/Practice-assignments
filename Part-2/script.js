@@ -64,6 +64,7 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 //   console.log("Drawww...!", dolphinsAvgScore, koalasAvgScore);
 // }
 
+/*
 const dolphinsAvgScore = (97 + 112 + 101) / 3;
 const koalasAvgScore = (109 + 95 + 106) / 3;
 console.log(dolphinsAvgScore, ":", koalasAvgScore);
@@ -81,3 +82,109 @@ if (dolphinsAvgScore > koalasAvgScore && dolphinsAvgScore >= 100) {
 } else {
   console.log("No one win the trophy");
 }
+*/
+
+/*
+console.log("9" - "5");
+console.log("19" - "13" + "17");
+console.log("19" - "13" + 17);
+console.log("123" < 57);
+console.log(5 + 6 + "4" + 9 - 4 - 2);
+
+const numNeighbours = prompt(
+  "How many neighbour countries does your country have?",
+);
+if (numNeighbours == 8) {
+  console.log(`My country has ${numNeighbours} borders.`);
+}
+*/
+
+/*
+const language = prompt("Which language is speak in your country?");
+
+switch (language) {
+  // case "Chinese || Mandarin":{ It will wrongly evaluate, switch checks for one case to compare with the input}
+
+  case "Chinese":
+  case "Mandarin":
+    {
+      console.log("Most numbers of native speackers");
+    }
+    break;
+  case "Spanish":
+    {
+      console.log("2nd place in number of native speakers");
+    }
+    break;
+  case "English":
+    {
+      console.log("3rd place in number of native speakers");
+    }
+    break;
+  case "Hindi":
+    {
+      console.log("4th place in number of native speakers");
+    }
+    break;
+  case "Arabic":
+    {
+      console.log("4th place in number of native speakers");
+    }
+    break;
+  default:
+    {
+      console.log("Your language is beautiful");
+    }
+    break;
+}
+*/
+
+const day = "Wednesday";
+/*
+switch (day) {
+  case "Monday": // day === "Monday"
+    console.log("Plan whole week stuff");
+    console.log("Go to coding meetup");
+    break;
+  case "Tuesday":
+    console.log("Design the database");
+    break;
+  case "Wednesday": //Same case will execute for two different values
+  case "Thrusday":
+    console.log("Structure the project");
+    break;
+  case "Friday":
+    console.log("Start to work on project");
+    break;
+  case "Saturday":
+  case "Sunday":
+    console.log("Enjoy the weekends");
+    break;
+  default:
+    console.log("No tension ");
+    break;
+}
+*/
+
+if (day === "Monday") {
+  console.log("Plan whole week stuff");
+  console.log("Go to coding meetup");
+} else if (day === "Tuesday") {
+  console.log("Design the database");
+} else if (day === "Wednesday" || day === "Thrusday") {
+  console.log("Structure the project");
+} else if (day === "Friday") {
+  console.log("Start to work on project");
+} else if (day === "Saturday" || day === "Sunday") {
+  console.log("Enjoy the weekends");
+} else {
+  console.log("No tension ");
+}
+
+if (12 > 11) {
+  const str = "12 is bigger";
+  console.log(str);
+}
+
+const name = "Ayan";
+console.log(`I'm ${name} here.`);

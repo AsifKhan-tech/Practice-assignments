@@ -164,7 +164,7 @@ switch (day) {
     console.log("No tension ");
     break;
 }
-*/
+
 
 if (day === "Monday") {
   console.log("Plan whole week stuff");
@@ -188,3 +188,39 @@ if (12 > 11) {
 
 const name = "Ayan";
 console.log(`I'm ${name} here.`);
+*/
+
+/*
+const age = 22;
+age >= 18 ? console.log("can drive") : console.log("cann't drive");
+
+const drive = age >= 18 ? "can drive" : "cann't drive";
+console.log(drive);
+
+console.log(`Ayan ${age >= 18 ? "can drive" : "cann't drive"}`);
+*/
+
+const bill = 430;
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+console.log(
+  `The bill was ${bill}, and the tip was ${tip}, and the total value ${bill + tip}`,
+);
+
+/* 
+let tip;
+ let bill = 275;
+
+if (bill >= 50 && bill <= 300) {
+  tip = bill * 0.15;
+  console.log(tip);
+  console.log(bill);
+  bill = tip + bill;
+  console.log(bill);
+} else {
+  tip = bill * 0.2;
+  console.log(tip);
+  console.log(bill);
+  bill = tip + bill;
+  console.log(bill);
+}
+*/

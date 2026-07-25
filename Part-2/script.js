@@ -138,9 +138,9 @@ switch (language) {
     break;
 }
 */
-
-const day = "Wednesday";
 /*
+const day = "Wednesday";
+
 switch (day) {
   case "Monday": // day === "Monday"
     console.log("Plan whole week stuff");
@@ -200,13 +200,14 @@ console.log(drive);
 console.log(`Ayan ${age >= 18 ? "can drive" : "cann't drive"}`);
 */
 
+/* 
 const bill = 430;
 const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
 console.log(
   `The bill was ${bill}, and the tip was ${tip}, and the total value ${bill + tip}`,
 );
 
-/* 
+
 let tip;
  let bill = 275;
 

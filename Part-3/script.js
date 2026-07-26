@@ -37,7 +37,7 @@ if (hasDriversLicense) console.log("I can drive: D");
 
  const interface = "video";
  const private = true;
-*/
+
 
 function logger() {
   console.log("My name is Ayan");
@@ -60,34 +60,34 @@ console.log(applesOrangesJuice);
 
 const num = Number("1");
 console.log(num);
-*/
 
-//function declaration or named function
-//function declarations can called before they defined in the code. Can call before they defined
 
-// const before = calcAge1(2015);
-// console.log("Ayan is", before, "years old.");
+function declaration or named function
+function declarations can called before they defined in the code. Can call before they defined
+
+ const before = calcAge1(2015);
+ console.log("Ayan is", before, "years old.");
 function calcAge1(birthYear) {
   return 2026 - birthYear;
 }
 
-// const ageAyan = calcAge1(2011);
-// console.log("Ayan is", ageAyan, "years old.");
+ const ageAyan = calcAge1(2011);
+ console.log("Ayan is", ageAyan, "years old.");
 
-//Anonymous function or function expression or it can be named as well. Cann't call before they defined
+Anonymous function or function expression or it can be named as well. Cann't call before they defined
 const calcAge2 = function (birtYear) {
   return 2026 - birtYear;
 };
-// const ageAltamash = calcAge2(2005);
-// console.log("Altamash is", ageAltamash, "years old.");
+ const ageAltamash = calcAge2(2005);
+ console.log("Altamash is", ageAltamash, "years old.");
 
-/*
+
 function (birtYear) {
   return 2026 - birtYear;
 }; It's the expression and produces a vlue
-*/
 
-//Arrow function
+
+Arrow function
 const calcAge3 = (birtYear) => 2026 - birtYear;
 
 const ageAzlan = calcAge3(2020);
@@ -101,3 +101,16 @@ const yearsUntilRetirement = (birtYear, firstName) => {
 
 const retirementYears = yearsUntilRetirement(1980, "Jacob");
 console.log(retirementYears);
+*/
+
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+  const juice = `Juice with ${applePieces} piece of apple and ${orangePieces} piece of orange.`;
+  return juice;
+}
+console.log(fruitProcessor(2, 3));

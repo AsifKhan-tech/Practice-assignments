@@ -40,3 +40,16 @@ if (JSON.stringify(savedCart) === JSON.stringify(currentCart)) {
   console.log("Cart contents differ");
 }
 // Output: No changes (content match)
+
+//When there is need to store multiple values in a single variable, we can use objects. Objects are collections of key-value pairs, where each key is a string (or symbol) and the value can be any data type, including other objects or functions.
+const user = {
+  firstName: "Alex",
+  age: 28,
+  isAdmin: true,
+  greet: function () {
+    return `Hello, my name is ${this.firstName}`;
+  },
+};
+
+console.log(user.firstName); // Output: Alex
+console.log(user.greet()); // Output: Hello, my name is Alex

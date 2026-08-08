@@ -91,3 +91,67 @@ let reversedArray = ["o", "l", "l", "e", "h"];
 let reversedString = reversedArray.join("");
 console.log(reversedString);
 */
+
+// let fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+// let removed = fruits.splice(2, 2);
+
+// console.log(fruits); // ["apple", "banana", "kiwi"]
+// console.log(removed); // ["orange", "mango"]
+
+// let colors = ["red", "green", "blue"];
+// colors.splice(1, 0, "yellow", "purple");
+
+// console.log(colors); // ["red", "yellow", "purple", "green", "blue"]
+
+// let numbers = [1, 2, 3, 4, 5];
+// numbers.splice(1, 2, 6, 7, 8);
+// numbers.splice(0);
+// console.log(numbers);
+
+// let original = [1, 2, 3, 4, 5];
+// let copy = [...original];
+// copy.splice(2, 1, 6);
+
+// console.log(original);
+// console.log(copy);
+
+let fruits = ["apple", "banana", "orange", "mango"];
+let indexToRemove = fruits.indexOf("orange");
+if (indexToRemove !== -1) {
+  fruits.splice(indexToRemove, 1);
+}
+
+console.log(fruits); // ["apple", "banana", "mango"]
+
+const originalArray = [1, 2, 3];
+const copyArray = [].concat(originalArray);
+
+let fruits = ["apple", "banana", "orange", "mango"];
+console.log(fruits.includes("banana")); // true
+console.log(fruits.includes("grape")); // false
+
+let numbers = [10, 20, 30, 40, 50, 30, 60];
+console.log(numbers.includes(30, 3)); // true
+console.log(numbers.includes(30, 4)); // true
+
+console.log(copyArray); // [1, 2, 3]
+console.log(copyArray === originalArray); // false
+
+const originalArray = [1, 2, 3];
+const copyArray = originalArray.slice();
+
+console.log(copyArray); // [1, 2, 3]
+console.log(copyArray === originalArray); // false
+
+const originalArray = [1, 2, 3];
+const copyArray = [...originalArray];
+
+console.log(copyArray); // [1, 2, 3]
+console.log(copyArray === originalArray); // false
+
+const originalArray = [1, 2, 3];
+const copyArray = [...originalArray];
+
+copyArray.push(4);
+console.log(originalArray); // [1, 2, 3]
+console.log(copyArray); // [1, 2, 3, 4]

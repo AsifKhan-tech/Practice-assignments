@@ -275,3 +275,75 @@ function processManifest(manifest) {
     console.log(validationSuccess(manifest));
   }
 }
+
+const person = {
+  name: "Alice",
+  age: 30,
+};
+
+console.log(person.name); // "Alice"
+console.log(person.job); // undefined
+
+// console.log(person.address.street); This will throw an error!
+
+const user = {
+  name: "John",
+  profile: {
+    email: "john@example.com",
+    address: {
+      street: "123 Main St",
+      city: "Somewhere",
+    },
+  },
+};
+
+console.log(user?.profile?.address?.street); // "123 Main St"
+console.log(user?.profile?.phone?.number); // undefined
+
+const person1 = { name: "Alice", age: 30, city: "New York" };
+
+const { name, age } = person1;
+
+console.log(name); // Alice
+console.log(age); // 30
+
+let person2 = { name: "Alice", age: 30, city: "New York" };
+
+let { name: personName, age: personAge } = person2;
+
+console.log(personName); // Alice
+console.log(personAge); //  30
+
+let person3 = { name: "Alice", age: 30, city: "New York" };
+let { name, age, country = "Unknown" } = person3;
+
+console.log(country); // Unknown
+
+const recipe = {
+  name: "Chocolate Cake",
+  ingredients: {
+    flour: "2 cups",
+    sugar: "1 cup",
+  },
+};
+
+// Extract `flour` from `ingredients`
+const {
+  ingredients: { flour },
+} = recipe;
+
+console.log(flour); // "2 cups"
+
+let name = "Bob";
+let age = 25;
+
+let person4 = { name, age };
+
+console.log(person4); // { name: "Bob", age: 25 }
+
+function createPerson(name, age) {
+  return { name, age };
+}
+
+let person = createPerson("Charlie", 35);
+console.log(person); // { name: "Charlie", age: 35 }

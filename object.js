@@ -210,30 +210,68 @@ function normalizeUnits(manifest) {
 // normalizeUnits(manifest);
 
 function validateManifest(manifest) {
-  const newManifest = structuredClone(manifest);
-  if (newManifest.containerId === undefined) {
-    //do work
-  } else if (
-    newManifest.containerId < 0 &&
-    typeof newManifest.containerId !== "number" &&
-    Number.isInteger(newManifest.containerId)
-  ) {
-    //do some work
+  const newManifest = {};
+
+  if (manifest.hasOwnProperty("containerId")) {
+    if (!Number.isInteger(manifest.containerId) || manifest.containerId <= 0) {
+      newManifest.containerId = "Invalid";
+    }
+  } else {
+    newManifest.containerId = "Missing";
   }
+
+  if (manifest.hasOwnProperty("destination")) {
+    if (
+      typeof manifest.destination !== "string" ||
+      manifest.destination.trim().length === 0
+    ) {
+      newManifest.destination = "Invalid";
+    }
+  } else {
+    newManifest.destination = "Missing";
+  }
+
+  if (manifest.hasOwnProperty("weight")) {
+    // if (typeof manifest.weight !== "number" || manifest.weight <= 0) {
+    // }
+
+    if (Number.isNaN(manifest.weight) || manifest.weight < 0) {
+      newManifest.weight = "Invalid";
+    }
+  } else {
+    newManifest.weight = "Missing";
+  }
+
+  if (manifest.hasOwnProperty("unit")) {
+    if (
+      typeof manifest.unit !== "string" ||
+      (manifest.unit.toLowerCase() !== "kg" &&
+        manifest.unit.toLowerCase() !== "lb")
+    ) {
+      newManifest.unit = "Invalid";
+    }
+  } else {
+    newManifest.unit = "Missing";
+  }
+
+  if (manifest.hasOwnProperty("hazmat")) {
+    if (typeof manifest.hazmat !== "boolean") {
+      newManifest.hazmat = "Invalid";
+    }
+  } else {
+    newManifest.hazmat = "Missing";
+  }
+
+  return newManifest;
 }
 
-if (
-  newManifest.containerId > 0 &&
-  typeof newManifest.containerId === "number" &&
-  Number.isInteger(newManifest.containerId) &&
-  newManifest.destination &&
-  typeof newManifest.destination === "string" &&
-  newManifest.destination.trim() &&
-  newManifest.weight &&
-  newManifest.weight > 0 &&
-  typeof newManifest.weight === "number" &&
-  (newManifest.unit === "kg" || newManifest.unit === "lb") &&
-  typeof newManifest.hazmat === "boolean"
-) {
-  return {};
+function processManifest(manifest) {
+  const validationSuccess = validateManifest(manifest);
+  if (Object.keys(validationSuccess).length === 0) {
+    console.log(`Validation success: ${manifest.containerId}`);
+    console.log(`Total weight: ${normalizeUnits(manifest).weight} kg`);
+  } else {
+    console.log(`Validation error: ${manifest.containerId}`);
+    console.log(validationSuccess(manifest));
+  }
 }

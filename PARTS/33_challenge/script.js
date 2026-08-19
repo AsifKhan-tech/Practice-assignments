@@ -30,4 +30,26 @@ const config4 = {
   phases: [],
 };
 
-console.log([].length);
+function runSequence(config, cycles) {
+  if (config.phases.length === 0) {
+    console.log("No phases found");
+    return;
+  }
+
+  for (let i = 0; i === cycles; i++) {
+    for (let j = 0; j < config.phases.length; j++) {
+      if (config.fault === true) {
+        console.log("Faulted phase!");
+        break;
+      } else if (config.phases.duration <= 0) {
+        console.log("Invalid phase detected");
+      } else {
+        console.log(
+          `Switching to ${config.phases[i].color} for ${config.phases[i].duration} s`,
+        );
+      }
+    }
+  }
+}
+
+console.log(runSequence(config1, 1));

@@ -18,7 +18,7 @@ function addCrewMember(crew, astronaut) {
   crew.push(astronaut);
 }
 
-addCrewMember(squad, firstAstronaut);
+// addCrewMember(squad, firstAstronaut);
 
 const remainingCrew = [
   { id: 2, name: "Bart", role: "Pilot", isEVAEligible: false, priority: 8 },
@@ -66,4 +66,26 @@ for (let i = 0; i < remainingCrew.length; i++) {
   addCrewMember(squad, remainingCrew[i]);
 }
 
-function swapCrewMembers(crew, fromIndex, toIndex) {}
+function swapCrewMembers(crew, fromIndex, toIndex) {
+  if (
+    fromIndex < 0 ||
+    fromIndex >= crew.length ||
+    toIndex < 0 ||
+    toIndex >= crew.length
+  ) {
+    console.log("Invalid crew indices");
+    return;
+  }
+  const updatedCrew = crew.slice();
+  updatedCrew[fromIndex] = updatedCrew.splice(
+    toIndex,
+    1,
+    updatedCrew[fromIndex],
+  )[0];
+
+  for (let i = 0; i < updatedCrew.length; i++) {
+    console.log(updatedCrew[i].name);
+  }
+
+  return updatedCrew;
+}

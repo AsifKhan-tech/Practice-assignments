@@ -75,4 +75,13 @@ function runSequence(config, cycles) {
   }
 }
 
-runSequence(config1, 1);
+runSequence(config1, 2);
+
+/**
+ * Switching to green for 5 s,
+ * Switching to yellow for 2 s,
+ * Switching to red for 4 s,
+ * Switching to green for 5 s,
+ * Switching to yellow for 2 s,
+ * Switching to red for 4 s
+ */

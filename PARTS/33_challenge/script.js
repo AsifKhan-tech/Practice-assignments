@@ -30,28 +30,6 @@ const config4 = {
   phases: [],
 };
 
-// function runSequence(config, cycles) {
-//   if (config.phases.length === 0) {
-//     console.log("No phases found");
-//     return;
-//   }
-
-//   for (let i = 0; i === cycles; i++) {
-//     for (let j = 0; j < config.phases.length; j++) {
-//       if (config.fault === true) {
-//         console.log("Faulted phase!");
-//         break;
-//       } else if (config.phases.duration <= 0) {
-//         console.log("Invalid phase detected");
-//       } else {
-//         console.log(
-//           `Switching to ${config.phases[i].color} for ${config.phases[i].duration} s`,
-//         );
-//       }
-//     }
-//   }
-// }
-
 function runSequence(config, cycles) {
   if (config.phases.length === 0) {
     console.log("No phases found");
@@ -77,11 +55,16 @@ function runSequence(config, cycles) {
 
 runSequence(config1, 2);
 
-/**
- * Switching to green for 5 s,
- * Switching to yellow for 2 s,
- * Switching to red for 4 s,
- * Switching to green for 5 s,
- * Switching to yellow for 2 s,
- * Switching to red for 4 s
- */
+function generateTimeline(config, cycles) {
+  let totalRunningTime = 0;
+  let totalDuration = [];
+  for (let cycle = 0; cycle < cycles; cycle++) {
+    for (let i = 0; i < config.phases.length; i++) {
+      totalRunningTime += config.phases[i].duration;
+      totalDuration.push(totalRunningTime);
+    }
+  }
+  return totalDuration;
+}
+
+console.log(generateTimeline(config1, 1));

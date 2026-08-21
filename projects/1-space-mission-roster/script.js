@@ -89,3 +89,18 @@ function swapCrewMembers(crew, fromIndex, toIndex) {
 
   return updatedCrew;
 }
+
+// const updatedSquad = swapCrewMembers(squad, 2, 5);
+
+function getEVAReadyCrew(crew) {
+  const eligible = [];
+
+  for (let i = 0; i < crew.length; i++) {
+    if (crew[i].isEVAEligible === true) {
+      eligible.push(crew[i]);
+    }
+  }
+
+  return eligible;
+}
+getEVAReadyCrew(squad);

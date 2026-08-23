@@ -62,3 +62,62 @@ function findByAuthor(catalog, author) {
   }
   return results;
 }
+
+function groupByDecade(catalog) {
+  const grouped = {};
+
+  for (let i = 0; i < catalog.length; i++) {
+    const book = catalog[i];
+
+    if (book.year === "Unknown") {
+      if (!grouped["Unknown"]) {
+        grouped["Unknown"] = [];
+        grouped["Unknown"].push(book);
+        continue;
+      }
+    }
+
+    const decade = Math.floor(book.year / 10) * 10;
+    const decadeKey = `${decade}s`;
+
+    if (!grouped[decadeKey]) {
+      grouped[decadeKey] = [];
+      grouped[decadeKey].push(book);
+    }
+  }
+
+  return grouped;
+}
+
+const byDecade = groupByDecade(catalog);
+
+function renderEntry(entry) {
+  const title = entry.title || "Unknown";
+  const author = entry.author || "Unknown";
+  const year = entry.year || "Unknown";
+  const location = entry.location || "Unknown";
+
+  return `
+  ${"-".repeat(25)}
+  Title: ${title}
+  Author: ${author}
+  Year: ${year}
+  Location: ${location}
+  ${"-".repeat(25)}
+  `;
+}
+
+console.log(renderEntry(catalog[0]));
+
+function validateEntry(entry) {
+  let isValid = true;
+
+  if (entry.title || entry.title === "Unknown") {
+    isValid = false;
+  }
+  return isValid;
+}
+
+console.log(
+  validateEntry({ title: "T", author: "A", year: 2000, location: "L" }),
+);

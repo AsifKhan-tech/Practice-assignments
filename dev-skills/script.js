@@ -5,13 +5,13 @@
 
 const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
-// 1) Understanding the problem
+//? 1) Understanding the problem
 //What's temprature amplitude?
 //Answer: Difference between highest & lowest temprature in the array
 //How to calculate max & min tempratures?
 //What's a sensor error? And what to do
 
-// 2) Breaking up into sub-problems
+//? 2) Breaking up into sub-problems
 //How to ignore errors?
 //Find max value in temprature value in array
 //Find min value in temprature value in array
@@ -52,7 +52,8 @@ const amplitude = calcTempAmplitude(temperatures);
 //* 2) Breaking up into sub-problems
 //  merge 2 arrays
 
-const calcTempAmplitudeNew = function (t1, t2) {
+/**
+const calcTempAmplitudeBug = function (t1, t2) {
   const temps = t1.concat(t2);
   console.log("Temps: ", temps);
 
@@ -76,6 +77,59 @@ const calcTempAmplitudeNew = function (t1, t2) {
   return max - min;
 };
 
-const amplitudeNew = calcTempAmplitudeNew([2, 5, 7], [1, 8, 0]);
+ const amplitudeNew = calcTempAmplitudeNew([2, 5, 7], [1, 8, 0]);
+ console.log("Amplitude: ", amplitudeNew);
+*/
 
-console.log("Amplitude: ", amplitudeNew);
+const measureKelvin = function () {
+  const measurement = {
+    type: "temp",
+    unit: "Clesius",
+
+    // C) FIX
+    value: Number(prompt("Degrees celsius:")),
+  };
+
+  // B) FIND
+  console.table(measurement);
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+
+  return kelvin;
+};
+
+// A) IDENTIFY
+// console.log(measureKelvin());
+
+//? Using debugger
+const calcTempAmplitudeBug = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log("Temps: ", temps);
+
+  let max = 0;
+  let min = 0;
+
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    //* if (temps[i] > max) max = temps[i];
+    //* if (temps[i] < min) min = temps[i];
+    if (typeof currentTemp !== "number") continue;
+
+    if (currentTemp > max) max = currentTemp;
+    if (currentTemp < min) min = currentTemp;
+  }
+
+  console.log("Max: ", max);
+  console.log("Min: ", min);
+
+  return max - min;
+};
+
+const amplitudeBug = calcTempAmplitudeBug([2, 5, 7], [1, 8, 10]);
+
+// A) IDENTIFY
+console.log("Amplitude:", amplitudeBug);

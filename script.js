@@ -103,11 +103,17 @@ const filterResult = filter(filterKaCallback);
 // console.log(filterResult);
 
 /**
- *Loop chalega ✓
- *Initial value deni hogi ✓
- *Har element pe callback execute hoga ✓
- *Har step ka return value store hoga ✓
- *Wo stored value agle step mein di jayegi ✓
+ ********Custom reduce funtion**********
+
+ *Run loop on the array ✓
+ *provide initial value ✓
+ *callback execute on every element ✓
+ *store return value of every step ✓
+ *Stored value will give to the next step ✓
+ */
+
+/**
+ * logic will perform in callabck
  */
 
 function reduce(cb, initialValue) {

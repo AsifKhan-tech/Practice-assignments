@@ -76,7 +76,7 @@ function map(callback) {
 //   return e * 2;
 // }
 
-const newNums = [1, 2, 4, 3, 12, 15, 29];
+const newNums = [1, 2, 3];
 
 function filter(callback) {
   const result = [];
@@ -97,7 +97,30 @@ function filterKaCallback(e) {
 }
 
 const filterResult = filter(filterKaCallback);
-console.log(filterResult);
+// console.log(filterResult);
 
 // const filterResult = newNums.filter((e) => e % 2 === 0);
 // console.log(filterResult);
+
+/**
+ *Loop chalega ✓
+ *Initial value deni hogi ✓
+ *Har element pe callback execute hoga ✓
+ *Har step ka return value store hoga ✓
+ *Wo stored value agle step mein di jayegi ✓
+ */
+
+function reduce(cb, initialValue) {
+  let acc = initialValue;
+  for (let i = 0; i < newNums.length; i++) {
+    acc = cb(acc, newNums[i]);
+  }
+  return acc;
+}
+
+function sumCallback(acc, curr) {
+  return acc + curr;
+}
+
+const resultReduce = reduce(sumCallback, 0);
+console.log(resultReduce);

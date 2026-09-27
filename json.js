@@ -27,8 +27,8 @@ const developerObj1 = {
 
 console.log(JSON.stringify(developerObj1, null, 2));
 
-const jsonString = '{"name":"John","age":30,"isAdmin":true}';
-const userObject = JSON.parse(jsonString);
+const jsonString1 = '{"name":"John","age":30,"isAdmin":true}';
+const userObject = JSON.parse(jsonString1);
 console.log(userObject);
 
 // Result:

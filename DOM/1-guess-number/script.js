@@ -16,17 +16,24 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (guessVal === randomNumber) {
     document.querySelector(".message").textContent = "🎉 correct number!";
   } else if (guessVal > randomNumber) {
-    if (score > 0) {
+    if (score > 1) {
       document.querySelector(".message").textContent = "📈 Too high!";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".message").textContent =
         "💥 You have lost the game";
+      document.querySelector(".score").textContent = 0;
     }
   } else if (guessVal < randomNumber) {
-    document.querySelector(".message").textContent = "📉 Too low!";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      document.querySelector(".message").textContent = "📉 Too low!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent =
+        "💥 You have lost the game";
+      document.querySelector(".score").textContent = 0;
+    }
   }
 });

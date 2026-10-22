@@ -3,30 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="A quick number-guessing game. Pick a number from 1 to 20 and see how high you can score."
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Guess My Number!</title>
   </head>
   <body>
-    <header>
-      <h1>Guess My Number!</h1>
-      <p class="between">(Between 1 and 20)</p>
-      <button class="btn again">Again!</button>
-      <div class="number">?</div>
-    </header>
-    <main>
-      <section class="left">
-        <input type="number" class="guess" />
-        <button class="btn check">Check!</button>
-      </section>
-      <section class="right">
-        <p class="message">Start guessing...</p>
-        <p class="label-score">💯 Score: <span class="score">20</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
-        </p>
-      </section>
-    </main>
+    <div class="game-shell">
+      <header class="game-header">
+        <div class="header-top">
+          <p class="eyebrow">The number game</p>
+          <button class="btn again" type="button">New round</button>
+        </div>
+        <div class="hero-copy">
+          <h1>Guess my number</h1>
+          <p class="between">Pick a number between 1 and 20</p>
+        </div>
+        <div class="number" aria-live="polite" aria-label="Mystery number">
+          ?
+        </div>
+      </header>
+      <main class="game-board">
+        <section class="left" aria-label="Make a guess">
+          <label class="guess-label" for="guess">Your guess</label>
+          <input
+            id="guess"
+            type="number"
+            class="guess"
+            min="1"
+            max="20"
+            inputmode="numeric"
+            autocomplete="off"
+          />
+          <button class="btn check" type="button">Check guess</button>
+        </section>
+        <section class="right" aria-label="Game status">
+          <p class="message" role="status" aria-live="polite">
+            Start guessing...
+          </p>
+          <p class="label-score">
+            <span>Score</span> <span class="score">20</span>
+          </p>
+          <p class="label-highscore">
+            <span>Highscore</span> <span class="highscore">0</span>
+          </p>
+        </section>
+      </main>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

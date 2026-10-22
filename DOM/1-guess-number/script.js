@@ -13,7 +13,8 @@ const displayMessage = function (message) {
 };
 
 document.querySelector(".check").addEventListener("click", function () {
-  const guessVal = Number(document.querySelector(".guess").value);
+  const guessInput = document.querySelector(".guess");
+  const guessVal = Number(guessInput.value);
 
   //when there is no input
   if (!guessVal) {
@@ -26,8 +27,7 @@ document.querySelector(".check").addEventListener("click", function () {
     displayMessage("🎉 correct number!");
     document.querySelector(".number").textContent = randomNumber;
 
-    document.querySelector("body").style.backgroundColor = "#60b347";
-    document.querySelector(".number").style.width = "30rem";
+    document.querySelector("body").classList.add("is-won");
 
     if (score > highScore) {
       highScore = score;
@@ -45,8 +45,11 @@ document.querySelector(".check").addEventListener("click", function () {
       //   "💥 You have lost the game";
       displayMessage("💥 You have lost the game");
       document.querySelector(".score").textContent = 0;
+      document.querySelector("body").classList.add("is-lost");
     }
   }
+
+  guessInput.value = "";
 
   //when guess is too high
   // else if (guessVal > randomNumber) {
@@ -85,6 +88,5 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".number").textContent = "?";
   document.querySelector(".guess").value = "";
 
-  document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".number").style.width = "15rem";
+  document.querySelector("body").classList.remove("is-won", "is-lost");
 });
